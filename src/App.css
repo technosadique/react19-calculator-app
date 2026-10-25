@@ -1,38 +1,126 @@
-.App {
+
+.calculator-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: #eef2f7;
+  font-family: Arial, sans-serif;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  padding: 24px;
+  background: #171923;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.calculator h1 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: 24px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator-display {
+  min-width: 0;
+  min-height: 105px;
+  margin-bottom: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 10px;
+  background: #252938;
+  border-radius: 12px;
+  color: #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
+.expression {
+  min-height: 18px;
+  color: #a5aec2;
+  font-size: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.display-value {
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: clamp(28px, 8vw, 36px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.calc-button {
+  min-width: 0;
+  min-height: 58px;
+  border: none;
+  border-radius: 10px;
+  background: #303442;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.calc-button:hover {
+  background: #454b5d;
+}
+
+.calc-button:active {
+  transform: scale(0.96);
+}
+
+.calc-button.utility {
+  background: #4b5563;
+}
+
+.calc-button.utility:hover {
+  background: #64748b;
+}
+
+.calc-button.operator {
+  background: #39445e;
+  color: #93c5fd;
+}
+
+.calc-button.operator:hover {
+  background: #4b5c7e;
+}
+
+.calc-button.equals {
+  background: #2563eb;
+  font-weight: 700;
+}
+
+.calc-button.equals:hover {
+  background: #1d4ed8;
+}
+
+.calc-button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+@media (max-width: 400px) {
+  .calculator {
+    padding: 16px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .calculator-buttons {
+    gap: 8px;
+  }
+
+  .calc-button {
+    min-height: 52px;
   }
 }
